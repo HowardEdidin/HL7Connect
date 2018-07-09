@@ -17,7 +17,7 @@ services:
   mirth-connect:
     build: mirth-connect
     volumes:
-      - "./mirth-connect/mirth.properties:/opt/mirth-connect/conf/mirth.properties:ro"
+      
       - "./data/spools/:/var/spool/mirth/:rw"
     ports: 
       - "8080:8080"
