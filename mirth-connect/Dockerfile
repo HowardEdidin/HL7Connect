@@ -25,17 +25,17 @@ RUN \
 
 COPY mirth.properties /tmp
 COPY extension.properties /tmp
-COPY fhir.tar.gz /tmp
+# COPY fhir.tar.gz /tmp
 # COPY cda1.gz /tmp
 # COPY r20.gz /tmp
 
 RUN \
   cp -af /tmp/mirth.properties /opt/mirth-connect/conf/ && \
   cp -af /tmp/extension.properties /opt/mirth-connect/appdata/ && \
-  cp -af /tmp/fhir.tar.gz /opt/mirth-connect/extensions/ && \
-  cd /opt/mirth-connect/extensions/ && \
-  tar -xzvf fhir.tar.gz && \
-  rm -f fhir.tar.gz 
+ # cp -af /tmp/fhir.tar.gz /opt/mirth-connect/extensions/ && \
+ # cd /opt/mirth-connect/extensions/ && \
+#  tar -xzvf fhir.tar.gz && \
+#  rm -f fhir.tar.gz 
 
 
 WORKDIR /opt/mirth-connect
