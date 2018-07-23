@@ -25,7 +25,7 @@ RUN \
 
 COPY mirth.properties /tmp
 COPY extension.properties /tmp
-# COPY fhir.tar.gz /tmp
+COPY fhir.tar.gz /tmp
 # COPY cda1.gz /tmp
 # COPY r20.gz /tmp
 
@@ -37,8 +37,18 @@ RUN \
   tar -xzvf fhir.tar.gz && \
   rm -f fhir.tar.gz 
 
+RUN mkdir /var/spool/mirth
+RUN chown -R mirth /var/spool/mirth
+VOLUME /var/spool/mirth
+
 
 WORKDIR /opt/mirth-connect
+
+RUN mkdir /home/Pickup
+RUN mkdir /home/Dropoff
+RUN mkdir /home/Error
+RUN mkdir /home/Extensions
+RUN chown mirth /home/Pickup /home/Dropoff /home/Error /home/Extensions
 
 EXPOSE 8080 8443 7000-7100
 
