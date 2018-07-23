@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mirth-database:
-    image: mysql:5.7
+    image: mysql/mysql-server
     command: mysqld --innodb-buffer-pool-size=20M
     volumes:
       - "./data/db:/var/lib/mysql:rw"
@@ -15,7 +15,7 @@ services:
       - "3306:3306"
 
   mirth-connect:
-    build: mirth-connect
+    build: ./mirth-connect
     volumes:      
       - "./data/spools/:/var/spool/mirth/:rw"
     ports: 
