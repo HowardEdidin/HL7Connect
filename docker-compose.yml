@@ -21,6 +21,7 @@ services:
     ports: 
       - "8080:8080"
       - "8443:8443"
+      - "8008:8900"
     links:
       - mirth-database:mysql
     depends_on:
